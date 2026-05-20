@@ -1,10 +1,11 @@
 body {
   font-family: 'Comic Sans MS', cursive;
-  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+  background: linear-gradient(to bottom, #0033a0, #ffd700);
   text-align: center;
   color: #fff;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 header {
@@ -16,8 +17,8 @@ header {
 .btn {
   margin: 20px;
   padding: 15px 30px;
-  background: #ff6f91;
-  color: #fff;
+  background: #ffd700;
+  color: #0033a0;
   font-size: 1.2em;
   border-radius: 30px;
   border: none;
@@ -26,7 +27,8 @@ header {
 }
 
 .btn:hover {
-  background: #ff9671;
+  background: #0033a0;
+  color: #ffd700;
 }
 
 section {
@@ -40,4 +42,51 @@ section {
 h2 {
   font-size: 2em;
   margin-bottom: 10px;
+}
+
+/* Animaciones */
+.fade-in {
+  animation: fadeIn 2s ease-in;
+}
+.bounce {
+  animation: bounce 2s infinite;
+}
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes bounce {
+  0%, 100% {transform: translateY(0);}
+  50% {transform: translateY(-10px);}
+}
+
+/* Globos animados */
+.balloon {
+  position: absolute;
+  bottom: -150px;
+  width: 60px;
+  height: 80px;
+  background: #ffd700;
+  border-radius: 50%;
+  animation: float 10s infinite;
+}
+.balloon.blue { background: #0033a0; }
+@keyframes float {
+  0% {bottom: -150px;}
+  100% {bottom: 100%; transform: rotate(15deg);}
+}
+.confeti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  top: -10px;
+  animation: caer linear forwards;
+}
+
+@keyframes caer {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
 }
