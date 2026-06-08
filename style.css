@@ -5,15 +5,29 @@ body {
   color: #fff;
   margin: 0;
   padding: 0;
-  overflow-y: auto;
-  height: auto;
+  min-height: 100vh;          /* ocupa toda la pantalla */
+  display: flex;              /* activa flexbox */
+  flex-direction: column;     /* apila elementos verticalmente */
+  justify-content: center;    /* centra verticalmente */
+  align-items: center;        /* centra horizontalmente */
 }
 
 header {
-  padding: 40px;
-  font-size: 2.5em;
+  padding: 20px;
+  font-size: 2.2em;
   font-weight: bold;
+  margin-bottom: 20px;        /* espacio debajo */
 }
+
+section {
+  display: none;
+  padding: 20px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 20px;
+  margin: 10px auto;          /* centra horizontalmente */
+  max-width: 90%;             /* evita que se pegue a los bordes */
+}
+
 
 .btn {
   margin: 20px;
@@ -30,14 +44,6 @@ header {
 .btn:hover {
   background: #0033a0;
   color: #ffd700;
-}
-
-section {
-  display: none;
-  padding: 30px;
-  background: rgba(255,255,255,0.2);
-  border-radius: 20px;
-  margin: 20px;
 }
 
 h2 {
@@ -107,4 +113,89 @@ h2 {
 .btn:hover {
   background: #0033a0;
   color: #ffd700;
+}
+
+input {
+  width: 100%;
+  padding: 16px;
+  font-size: 1.4em;
+  border-radius: 10px;
+  border: none;
+  appearance: none;          /* quita el estilo nativo */
+  -webkit-appearance: none;  /* para Safari y Chrome móvil */
+  -moz-appearance: none;     /* para Firefox */
+  background-color: #fff;    /* mejora contraste */
+  color: #0033a0;
+  box-sizing: border-box;
+}
+
+select {
+  width: 15%;
+  padding: 16px;
+  font-size: 1.4em;
+  border-radius: 10px;
+  border: none;
+  appearance: none;          /* quita el estilo nativo */
+  -webkit-appearance: none;  /* para Safari y Chrome móvil */
+  -moz-appearance: none;     /* para Firefox */
+  background-color: #fff;    /* mejora contraste */
+  color: #0033a0;
+  box-sizing: border-box;
+}
+
+/* contenedor del select */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ícono de flecha opcional */
+select::after {
+  content: '▼';
+  position: absolute;
+  right: 15px;
+  pointer-events: none;
+}
+
+/* Ajustes generales para móviles */
+@media (max-width: 600px) {
+  body {
+    font-size: 1.1em;          /* aumenta tamaño base del texto */
+    line-height: 1.4;          /* más aire entre líneas */
+  }
+
+  header {
+    padding: 30px 10px;        /* menos padding lateral */
+    font-size: 2.2em;          /* letras más grandes que antes */
+    margin-top: 15px;          /* separa del borde superior */
+  }
+
+  .btn {
+    width: 90%;                /* ocupa casi todo el ancho */
+    padding: 15px;
+    font-size: 1.1em;          /* más legible en celular */
+  }
+      
+  .balloon {
+    width: 50px;
+    height: 70px;
+  }
+
+   form {
+    max-width: 95%;     /* casi todo el ancho de la pantalla */
+    padding: 20px;
+  }
+
+  input, select, textarea {
+    font-size: 1.8em;   /* aún más grande en celular */
+    padding: 20px;
+  }
+
+  .btn {
+    width: 100%;
+    font-size: 1.8em;
+    padding: 20px;
+  }
+
 }
