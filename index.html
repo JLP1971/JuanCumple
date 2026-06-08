@@ -7,19 +7,52 @@
 </head>
 <body>
   <header class="fade-in">💙💛 ¡Estás invitado al cumple de Juan! 🎂</header>
-  <button class="btn" onclick="mostrarDetalles()">Abrir Invitación</button>
+  <button class="btn" id="abrirInvitacion" onclick="mostrarDetalles()">Abrir Invitación</button>
   
-  <section id="detalles">
-    <h2>Detalles del Evento</h2>
-    <p>📅 Viernes 24 de Abril 2026</p>
-    <p>🕕 Hora: 18:00 hs</p>
-    <p>📍 Lugar: Kiosco Miramar, Calle Principal</p>
-    <p>✨ ¡Habrá juegos, sorpresas y mucha diversión!</p>
+  <section id="detalles" style="display: none;">
+    <h1>Detalles del Evento</h1>
+    <h2>📅 Martes 9 de Junio 2026</h2>
+    <h2>🕕 Hora: 21:00 hs</h2>
+    <h2>📍 Lugar: Corrientes 1298, Casa de la Abu</h2>
+    <h2>✨ ¡Habrá juegos, sorpresas y mucha diversión!</h2>
+    <h1 id="mensajeFinal" style="display:none ; color:blue">
+      🎉 ¡Te esperamos! 💛💙
+    </h1>
+    <button class="btn" id="abrirFormulario" onclick="abrirFormulario()">Confirmar asistencia</button>  
+    <!-- Mensaje final -->
+    
+    </section>
+
+  <section id="asistencia" style="display:none;">
+
+    <!-- Formulario propio que envía a Google Forms -->
+    <form id="formAsistencia" action="https://docs.google.com/forms/d/e/1FAIpQLSetfNNzELie9-SXKhg9rqTH_nUw9nxZOJzyiKVBV71kG35oNg/formResponse" 
+          method="POST" target="hidden_iframe">
+      <label>Nombre:</label>
+      <input type="text" name="entry.1769107883" required>
+      <br><br>
+      <label>¿Cuantos vendrán?</label>
+      <select name="entry.684406882" required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        
+      </select>
+      <br><br>
+      <input type="submit" value="Enviar" class="btn" onclick="mensajeFinal()">
+    </form>
+
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+    <!-- Mensaje final -->
+    <!-- <div id="mensajeFinal" style="display:none; text-align:center; font-size:24px; color:#0033a0; font-weight:bold;">
+      🎉 ¡Te esperamos! 💛💙
+    </div> -->
   </section>
-   <!-- Música de fondo -->
-  <audio autoplay loop>
-    <source src="musica.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio.
+
+  <audio id="birthdaySong">
+    <source src="../ElevenLabs_Brisa_de_la_Bahía.mp3" type="audio/mpeg">   
   </audio>
 
   <script src="script.js"></script>

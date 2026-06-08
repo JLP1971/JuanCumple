@@ -5,7 +5,8 @@ body {
   color: #fff;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-y: auto;
+  height: auto;
 }
 
 header {
@@ -89,4 +90,21 @@ h2 {
     transform: translateY(100vh) rotate(360deg);
     opacity: 0;
   }
+}
+
+.btn {
+  margin: 20px;
+  padding: 15px 30px;
+  background: #ffd700;
+  color: #0033a0;
+  font-size: 1.2em;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #0033a0;
+  color: #ffd700;
 }
