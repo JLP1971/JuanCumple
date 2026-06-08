@@ -1,40 +1,42 @@
-body {
-  font-family: 'Comic Sans MS', cursive;
-  background: linear-gradient(to bottom, #0033a0, #ffd700);
-  text-align: center;
-  color: #fff;
+html, body {
+  width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
-  min-height: 100vh;          /* ocupa toda la pantalla */
-  display: flex;              /* activa flexbox */
-  flex-direction: column;     /* apila elementos verticalmente */
-  justify-content: center;    /* centra verticalmente */
-  align-items: center;        /* centra horizontalmente */
+  font-family: 'Comic Sans MS', cursive;
+  background: linear-gradient(to bottom, #0033a0, #ffd700);
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
 }
 
+/* Encabezado */
 header {
-  padding: 20px;
-  font-size: 2.2em;
+  padding: 30px 15px;
+  font-size: 2.5em;
   font-weight: bold;
-  margin-bottom: 20px;        /* espacio debajo */
+  margin-bottom: 20px;
 }
 
+/* Secciones */
 section {
   display: none;
-  padding: 20px;
-  background: rgba(255,255,255,0.2);
+  width: 100%;
+  padding: 25px;
+  background: rgba(255,255,255,0.25);
   border-radius: 20px;
-  margin: 10px auto;          /* centra horizontalmente */
-  max-width: 90%;             /* evita que se pegue a los bordes */
+  margin: 0;
+  box-sizing: border-box;
 }
 
-
+/* Botones */
 .btn {
-  margin: 20px;
-  padding: 15px 30px;
+  width: 100%;
+  margin: 15px 0;
+  padding: 20px;
   background: #ffd700;
   color: #0033a0;
-  font-size: 1.2em;
+  font-size: 1.5em;
   border-radius: 30px;
   border: none;
   cursor: pointer;
@@ -46,22 +48,35 @@ section {
   color: #ffd700;
 }
 
-h2 {
-  font-size: 2em;
-  margin-bottom: 10px;
+/* Formularios */
+form {
+  width: 100%;
+  padding: 25px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 20px;
+  margin: 12px 0;
+  font-size: 1.6em;
+  border-radius: 10px;
+  border: none;
+  background-color: #fff;
+  color: #0033a0;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 /* Animaciones */
-.fade-in {
-  animation: fadeIn 2s ease-in;
-}
-.bounce {
-  animation: bounce 2s infinite;
-}
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
+.fade-in { animation: fadeIn 2s ease-in; }
+.bounce { animation: bounce 2s infinite; }
+
+@keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
 @keyframes bounce {
   0%, 100% {transform: translateY(0);}
   50% {transform: translateY(-10px);}
@@ -78,17 +93,20 @@ h2 {
   animation: float 10s infinite;
 }
 .balloon.blue { background: #0033a0; }
+
 @keyframes float {
-  0% {bottom: -150px;}
-  100% {bottom: 100%; transform: rotate(15deg);}
+  0% { bottom: -150px; }
+  100% { bottom: 100%; transform: rotate(15deg); }
 }
+
+/* Confeti (serpentinas) */
 .confeti {
   position: fixed;
   width: 10px;
   height: 10px;
   border-radius: 50%;
   top: -10px;
-  animation: caer linear forwards;
+  animation: caer 5s linear forwards;
 }
 
 @keyframes caer {
@@ -98,101 +116,39 @@ h2 {
   }
 }
 
-.btn {
-  margin: 20px;
-  padding: 15px 30px;
-  background: #ffd700;
-  color: #0033a0;
-  font-size: 1.2em;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #0033a0;
-  color: #ffd700;
-}
-
-input {
-  width: 100%;
-  padding: 16px;
-  font-size: 1.4em;
-  border-radius: 10px;
-  border: none;
-  appearance: none;          /* quita el estilo nativo */
-  -webkit-appearance: none;  /* para Safari y Chrome móvil */
-  -moz-appearance: none;     /* para Firefox */
-  background-color: #fff;    /* mejora contraste */
-  color: #0033a0;
-  box-sizing: border-box;
-}
-
-select {
-  width: 15%;
-  padding: 16px;
-  font-size: 1.4em;
-  border-radius: 10px;
-  border: none;
-  appearance: none;          /* quita el estilo nativo */
-  -webkit-appearance: none;  /* para Safari y Chrome móvil */
-  -moz-appearance: none;     /* para Firefox */
-  background-color: #fff;    /* mejora contraste */
-  color: #0033a0;
-  box-sizing: border-box;
-}
-
-/* contenedor del select */
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* ícono de flecha opcional */
-select::after {
-  content: '▼';
-  position: absolute;
-  right: 15px;
-  pointer-events: none;
-}
-
+/* Responsivo */
 @media (max-width: 600px) {
   body {
-    font-size: 1.4em;       /* sube el tamaño base */
-    line-height: 1.6;       /* más aire entre líneas */
+    font-size: 1.6em;
+    line-height: 1.6;
   }
 
   header {
-    padding: 40px 15px;
-    font-size: 2.5em;       /* encabezado grande y legible */
-    margin-top: 20px;
+    font-size: 2.8em;
+    margin-top: 25px;
   }
 
-  h2 {
-    font-size: 2em;         /* títulos más grandes */
-  }
-
-  .btn {
-    width: 100%;            /* ocupa todo el ancho */
-    font-size: 1.5em;       /* texto más grande */
-    padding: 20px;
-  }
-
-  form {
-    max-width: 95%;
-    padding: 25px;
+  h1, h2 {
+    font-size: 2em;
   }
 
   input, select, textarea {
-    width: 100%;            /* ancho completo */
-    font-size: 1.5em;       /* texto grande */
-    padding: 20px;          /* área táctil cómoda */
+    font-size: 1.8em;
+    padding: 22px;
+  }
+
+  .btn {
+    font-size: 1.8em;
+    padding: 22px;
   }
 
   .balloon {
-    width: 45px;
-    height: 65px;
+    width: 40px;
+    height: 60px;
+  }
+
+  .confeti {
+    width: 8px;
+    height: 8px;
   }
 }

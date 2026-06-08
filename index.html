@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Invitación de Juan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- clave para móviles -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="fade-in">💙💛 ¡Estás invitado al cumple de Juan! 🎂</header>
+
   <button class="btn" id="abrirInvitacion" onclick="mostrarDetalles()">Abrir Invitación</button>
   
   <section id="detalles" style="display: none;">
@@ -15,41 +17,40 @@
     <h2>🕕 Hora: 21:00 hs</h2>
     <h2>📍 Lugar: Corrientes 1298, Casa de la Abu</h2>
     <h2>✨ ¡Habrá juegos, sorpresas y mucha diversión!</h2>
-    <h1 id="mensajeFinal" style="display:none ; color:blue">
+    <h1 id="mensajeFinal" style="display:none; color:blue">
       🎉 ¡Te esperamos! 💛💙
     </h1>
     <button class="btn" id="abrirFormulario" onclick="abrirFormulario()">Confirmar asistencia</button>  
-    <!-- Mensaje final -->
-    
-    </section>
+  </section>
 
   <section id="asistencia" style="display:none;">
-
-    <!-- Formulario propio que envía a Google Forms -->
     <form id="formAsistencia" action="https://docs.google.com/forms/d/e/1FAIpQLSetfNNzELie9-SXKhg9rqTH_nUw9nxZOJzyiKVBV71kG35oNg/formResponse" 
           method="POST" target="hidden_iframe">
-      <label><h1>Confirma tu asistencia</h1></label>
-      <input type="text" name="entry.1769107883" required>
-      <br><br>
-      <label><h1>¿Cuantos vendrán?</h1></label>
+      <h1>Confirma tu asistencia</h1>
+      <input type="text" name="entry.1769107883" placeholder="Tu nombre" required>
+      
+      <h1>¿Cuántos vendrán?</h1>
       <select name="entry.684406882" required>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
-        
       </select>
-      <br><br>
+      
       <input type="submit" value="Enviar" class="btn" onclick="mensajeFinal()">
     </form>
-
     <iframe name="hidden_iframe" style="display:none;"></iframe>
-
-    <!-- Mensaje final -->
-    <!-- <div id="mensajeFinal" style="display:none; text-align:center; font-size:24px; color:#0033a0; font-weight:bold;">
-      🎉 ¡Te esperamos! 💛💙
-    </div> -->
   </section>
+
+  <!-- Globos -->
+  <div class="balloon"></div>
+  <div class="balloon blue"></div>
+
+  <!-- Confeti -->
+  <div class="confeti" style="left:20%; background:red;"></div>
+  <div class="confeti" style="left:40%; background:yellow;"></div>
+  <div class="confeti" style="left:60%; background:blue;"></div>
+  <div class="confeti" style="left:80%; background:green;"></div>
 
   <audio id="birthdaySong">
     <source src="../ElevenLabs_Brisa_de_la_Bahía.mp3" type="audio/mpeg">   
@@ -58,3 +59,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
